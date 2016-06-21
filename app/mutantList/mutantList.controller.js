@@ -12,6 +12,11 @@ MutantListController.$inject =['$firebaseArray'];
         vm.mutants =$firebaseArray(mutantsRef);
         vm.newMutant = new Mutant();
         vm.addMutant = addMutant;
+        vm.toggleComplete = toggleComplete;
+
+        function toggleComplete(mutant){
+          vm.mutants.$save(mutant);
+        }
 
         function Mutant(){
           this.name = '';
