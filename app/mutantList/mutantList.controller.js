@@ -8,9 +8,9 @@
 MutantListController.$inject =['$firebaseArray'];
     function MutantListController($firebaseArray){
         var vm = this;
-        var rootRef = firebase.database().ref();
-        vm.mutants =['deadpool', 'nightcrawler', 'gambit'];
-        vm.newMutant = $firebaseArray(rootRef);
+        var mutantsRef = firebase.database().ref().child('mutants');
+        vm.mutants =$firebaseArray(mutantsRef);
+        vm.newMutant = new Mutant();
         vm.addMutant = addMutant;
 
         function Mutant(){
