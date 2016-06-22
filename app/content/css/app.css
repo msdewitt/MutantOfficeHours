@@ -9,3 +9,7 @@
 .home h4{
   margin-bottom: 30px;
 }
+.log-in-form {
+  border: 1px solid #cacaca;
+  padding: 2.5rem;
+  border-radius: 3px; }
