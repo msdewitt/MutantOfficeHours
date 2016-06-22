@@ -15,10 +15,16 @@
       vm.user = {
         email:'',
         password:''
-      }
+      };
 
       function register(user){
-        return auth.$createUserWithEmailAndPassword(user.email, user.password);
+        return auth.$createUserWithEmailAndPassword(user.email, user.password)
+        .then(function(){
+          console.log(user);
+        })
+        .catch(function(error){
+          console.log(error);
+        });
       }
 
 
