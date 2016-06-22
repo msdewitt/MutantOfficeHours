@@ -1,4 +1,4 @@
 (function(){
-'use strict'
-    angular.module('mutantApp.auth',[])
+'use strict';
+    angular.module('mutantApp.auth',[]);
 })();

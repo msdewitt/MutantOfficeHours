@@ -10,7 +10,7 @@
       $stateProvider.state('register',{
         url: '/register',
         templateUrl: 'app/auth/register.html',
-        controller: 'app/auth/auth.controller.js',
+        controller: 'AuthController',
         controllerAs: 'vm'
       });
     }
