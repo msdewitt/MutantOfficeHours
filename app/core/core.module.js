@@ -3,4 +3,5 @@
 
   angular
     .module('mutantApp.core',[]);
+    //.constant('FIREBASE_URL',... );
 })()
