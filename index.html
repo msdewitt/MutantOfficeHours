@@ -15,16 +15,16 @@ angularfire -->
   <link rel="stylesheet" href="app/content/css/app.css">
   <body>
 
-<div class="top-bar" id="main-menu">
+<div ng-controller="AuthController as vm" class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Mutant Office Hours</li>
+      <li><a class="menu-text" ui-sref="home">Mutant Office Hours</a></li>
     </ul>
   </div>
   <div class="top-bar-right">
     <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-      <li><a href="#/login">Login</a></li>
-      <li><a href="#/register">Register</a></li>
+      <li><a ui-sref="login">Login</a></li>
+      <li><a href='#' ng-click="vm.logout()">Logout</a></li>
     </ul>
   </div>
 </div>
