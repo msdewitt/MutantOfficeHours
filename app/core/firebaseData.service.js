@@ -11,7 +11,7 @@
 
         var service = {
           root:root,
-        
+          texts: root.child('texts'),
 
 
         }
