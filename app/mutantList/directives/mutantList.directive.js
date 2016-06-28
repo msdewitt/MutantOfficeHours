@@ -3,21 +3,21 @@
 
     angular
       .module('mutantApp.mutantList')
-      .directive('mlHTML',mlHTML);
+      .directive('mlMutantForm',mlMutantForm);
 
       function mlHTML(){
         return{
-          templateURL: 'app/mutantList/mutantForm.html',
+          templateURL: 'app/mutantList/directives/mutantForm.html',
           restrict: 'E',
-          controller: mlHTMLController,
+          controller: mlMutantFormController,
           controllerAs:'vm',
           scope:{
-    
+
           },
         }
       }
-      mlHTMLController.$inject = [];
-      function mlHTMLController(){
+      mlMutantFormController.$inject = [];
+      function mlMutantFormController(){
         var vm = this;
         vm.addMutant = addMutant;
         vm.newMutant = new mutantService.Mutant();
