@@ -10,6 +10,7 @@
   function MutantListController(mutantService, textMessageService, user) {
     var vm = this;
 
+    
     vm.mutants = mutantService.mutantsByUser(user.uid);
     vm.deleteMutant = deleteMutant;
     vm.toggleComplete = toggleComplete;

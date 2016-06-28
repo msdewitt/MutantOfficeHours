@@ -5,19 +5,20 @@
       .module('mutantApp.mutantList')
       .directive('mlMutantForm',mlMutantForm);
 
-      function mlHTML(){
+      function mlMutantForm(){
         return{
-          templateURL: 'app/mutantList/directives/mutantForm.html',
+          templateUrl: 'app/mutantList/directives/mutantForm.html',
           restrict: 'E',
-          controller: mlMutantFormController,
+          controller: MutantFormController,
           controllerAs:'vm',
+          bindToController: true, //bind these to the controller directly, so you don't have to inject scope into the controller
           scope:{
-
+            mutants: '='
           },
         }
       }
-      mlMutantFormController.$inject = [];
-      function mlMutantFormController(){
+      MutantFormController.$inject = ['mutantService'];
+      function MutantFormController(mutantService){
         var vm = this;
         vm.addMutant = addMutant;
         vm.newMutant = new mutantService.Mutant();
