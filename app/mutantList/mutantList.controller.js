@@ -1,36 +1,38 @@
-(function(){
-'use strict';
+(function() {
+  'use strict';
 
   angular
     .module('mutantApp.mutantList')
     .controller('MutantListController', MutantListController);
 
-MutantListController.$inject =['mutantService', 'fireBaseDataService', 'textMessageService'];
-    function MutantListController(mutantService, fireBaseDataService, textMessageService){
-        var vm = this;
+  MutantListController.$inject=['mutantService', 'textMessageService', 'user'];
 
-        vm.mutants = mutantService.mutants;
-        vm.newMutant = new mutantService.Mutant();
-        vm.addMutant = addMutant;
-        vm.toggleComplete = toggleComplete;
-        vm.deleteMutant = deleteMutant;
-        vm.sendText = sendText;
+  function MutantListController(mutantService, textMessageService, user) {
+    var vm = this;
 
-        function sendText(mutant){
-          textMessageService.sendText(mutant, vm.mutants);
-        }
+    vm.addMutant = addMutant;
+    vm.mutants = mutantService.mutantsByUser(user.uid);
+    vm.newMutant = new mutantService.Mutant();
+    vm.deleteMutant = deleteMutant;
+    vm.toggleComplete = toggleComplete;
+    vm.sendText = sendText;
 
-        function deleteMutant(mutant){
-          vm.mutants.$remove(mutant);
-        }
-
-        function toggleComplete(mutant){
-          vm.mutants.$save(mutant);
-        }
-
-        function addMutant(){
-          vm.mutants.$add(vm.newMutant);
-          vm.mutant = new mutantService.Mutant();
-        }
+    function addMutant() {
+      vm.mutants.$add(vm.newMutant);
+      vm.newMutant = new mutantService.Mutant();
     }
+
+    function deleteMutant(mutant) {
+      vm.mutants.$remove(mutant);
+    }
+
+    function toggleComplete(mutant) {
+      vm.mutants.$save(mutant);
+    }
+
+    function sendText(mutant) {
+      textMessageService.sendText(mutant, vm.mutants);
+    }
+
+  }
 })();

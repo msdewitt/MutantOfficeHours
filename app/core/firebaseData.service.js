@@ -1,28 +1,21 @@
-(function(){
+(function() {
   'use strict';
 
   angular
     .module('mutantApp.core')
-    .factory('fireBaseDataService', fireBaseDataService);
+    .factory('firebaseDataService', firebaseDataService);
 
-      function fireBaseDataService(){
+  function firebaseDataService() {
+    var root = firebase.database().ref();
 
-        var root = firebase.database().ref()
+    var service = {
+      root: root,
+      texts: root.child('texts'),
+      mutants: root.child('mutants'),
+      users: root.child('users'),
+      emails: root.child('users'),
+    };
 
-        var service = {
-          root:root,
-          texts: root.child('texts'),
-          mutants: root.child('mutants'),
-
-
-        }
-
-        return service;
-
-        //////////////////
-
-
-      }
-
-
+    return service;
+  }
 })();

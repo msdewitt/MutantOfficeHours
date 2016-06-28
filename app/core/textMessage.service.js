@@ -1,32 +1,30 @@
-(function(){
+(function() {
+  'use strict';
 
-'use strict';
+  angular
+    .module('mutantApp.core')
+    .factory('textMessageService', textMessageService);
 
-angular
-  .module('mutantApp.core')
-  .service('textMessageService', textMessageService);
+  textMessageService.$inject = ['firebaseDataService'];
 
-textMessageService.$inject = ['fireBaseDataService'];
-  function textMessageService(fireBaseDataService){
+  function textMessageService(firebaseDataService) {
     var service = {
       sendText: sendText,
-    }
+    };
+
     return service;
 
-    ////////////////
+    //////////////
 
-    
-    function sendText(mutant, mutants){
-
+    function sendText(mutant, mutants) {
       var newText = {
-        topic: mutant.topic,
         name: mutant.name,
-        phone: mutant.phone
+        topic: mutant.topic,
+        phoneNumber: mutant.phone
       };
-      fireBaseDataService.texts.push(newText);
+      firebaseDataService.texts.push(newText);
       mutant.notified = true;
       mutants.$save(mutant);
     }
   }
-
 })();
