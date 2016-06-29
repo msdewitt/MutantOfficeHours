@@ -9,6 +9,9 @@
   <body>
 
     <xt-navbar></xt-navbar>
+    <div id="clock" ng-controller="TimestampController">
+      <span ml-timestamp="format"></span>
+    </div>
 
     <div ui-view class="row" id="main"></div>
 
@@ -52,5 +55,12 @@
 
     <!-- Firebase app configuration -->
     <script src="app/firebaseConfig.js"></script>
+
+    <!-- Timestamp module -->
+    <script src="app/timestamp/timestamp.module.js"></script>
+    <script src="app/timestamp/timestamp.controller.js"></script>
+    <script src="app/timestamp/timestamp.directive.js"></script>
+
+
   </body>
 </html>
