@@ -1,4 +1,4 @@
-angular.module('docsTimeDirective', [])
+angular.module('docsTimeDirective', ['ngMessages'])
 .controller('Controller', ['$scope', function($scope) {
   $scope.format = 'M/d/yy h:mm:ss a';
 }])

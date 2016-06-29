@@ -15,6 +15,7 @@
     'mutantApp.core',
     'mutantApp.layout',
     'mutantApp.timestamp',
+    'mutantApp.error',
   ])
   .config(configFunction)
   .run(runFunction);

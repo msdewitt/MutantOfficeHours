@@ -5,36 +5,42 @@
     <title></title>
   </head>
   <body ng-app="docsTimeDirective">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.0.4/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angularFire/2.0.1/angularfire.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-messages.js"></script>
     <script src="test.js"></script>
-    <script src="testForm.js"></script>
+<div class="row">
+  <div class="small-12 column">
+  </div>
+      <div ng-controller="Controller" class="small-2-offset collumn">
+        Date format: <input ng-model="format"> <hr/>
+        Current time is: <span my-current-time="format"></span>
+      </div>
+    </body>
+    <form name="myForm">
+      <label>
+        Enter your name:
+        <input type="text"
+               name="myName"
+               ng-model="name"
+               ng-minlength="5"
+               ng-maxlength="20"
+               required />
+      </label>
+      <div ng-messages="myForm.myName.$error" class="small-1-offset small-3 collumn">
+        <div ng-message="required" class="callout small alert">You did not enter a field</div>
+        <div ng-message="minlength" class="callout small alert">Your field is too short</div>
+        <div ng-message="maxlength" class="callout small alert">Your field is too long</div>
+      </div>
+      <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
 
-    <div ng-controller="Controller">
-      Date format: <input ng-model="format"> <hr/>
-      Current time is: <span my-current-time="format"></span>
-    </div>
-  </body>
-  <form name="myForm">
-    <label>
-      Enter your name:
-      <input type="text"
-             name="myName"
-             ng-model="name"
-             ng-minlength="5"
-             ng-maxlength="20"
-             required />
-    </label>
-    <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
+    </form>
+  </div>
 
-    <div ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
-      <div ng-message="required">You did not enter a field</div>
-      <div ng-message="minlength">Your field is too short</div>
-      <div ng-message="maxlength">Your field is too long</div>
-    </div>
-  </form>
+
 </html>
