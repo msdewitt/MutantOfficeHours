@@ -1,14 +1,24 @@
 <div class="medium-6 medium-centered large-4 large-centered columns">
 
-  <form ng-submit="vm.register(vm.user)">
+  <form name="registerForm" ng-submit="vm.register(vm.user)">
     <div class="column log-in-form">
       <h4 class="text-center">Sign Up</h4>
       <label>Email
-        <input ng-model="vm.user.email" type="email" placeholder="somebody@example.com" required autofocus>
+        <input name="email"ng-model="vm.user.email" type="email" placeholder="somebody@example.com" required autofocus>
       </label>
+      <div ng-messages= "registerForm.email.$error">
+        <div ng-message="required" class="callout small alert">You did not enter a field</div>
+        <div ng-message="minlength" class="callout small alert">Your field is too short</div>
+        <div ng-message="maxlength" class="callout small alert">Your field is too long</div>
+      </div>
       <label>Password
-        <input ng-model="vm.user.password" type="password" placeholder="Password" required>
+        <input name="password"ng-model="vm.user.password" type="password" placeholder="Password" required>
       </label>
+      <div ng-messages= "registerForm.password.$error">
+        <div ng-message="required" class="callout small alert">You did not enter a field</div>
+        <div ng-message="minlength" class="callout small alert">Your field is too short</div>
+        <div ng-message="maxlength" class="callout small alert">Your field is too long</div>
+      </div>
       <p><button type="submit" class="button expanded">Register</button></p>
     </div>
   </form>

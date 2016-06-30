@@ -4,12 +4,22 @@
     <div class="column log-in-form">
       <h4 class="text-center">Sign In</h4>
       <label>Email
-        <input name="email"ng-model="vm.user.email" type="email" placeholder="somebody@example.com" required autofocus>
+        <input name="email"ng-model="vm.user.email" type="email" placeholder="somebody@example.com" ng-minlength = "6" ng-maxlength="25" required autofocus>
       </label>
-      <ml-error errorForm ="loginForm" textInput = "email"></ml-error>
+      <!-- <ml-error error-form ="loginForm" text-input = "email"></ml-error> -->
+      <div ng-messages= "loginForm.email.$error">
+        <div ng-message="required" class="callout small alert">You did not enter a field</div>
+        <div ng-message="minlength" class="callout small alert">Your field is too short</div>
+        <div ng-message="maxlength" class="callout small alert">Your field is too long</div>
+      </div>
       <label>Password
-        <input ng-model="vm.user.password" type="password" placeholder="Password" required>
+        <input name="password" ng-model="vm.user.password" type="password" placeholder="Password" ng-minlength = "6" ng-maxlength="25" required>
       </label>
+      <div ng-messages= "loginForm.password.$error">
+        <div ng-message="required" class="callout small alert">You did not enter a field</div>
+        <div ng-message="minlength" class="callout small alert">Your field is too short</div>
+        <div ng-message="maxlength" class="callout small alert">Your field is too long</div>
+      </div>
       <p><button type="submit" class="button expanded">Login</button></p>
     </div>
   </form>

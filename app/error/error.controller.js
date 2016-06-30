@@ -6,6 +6,7 @@
 
     ErrorInputController.$inject = ['$scope'];
     function ErrorInputController(){
+      var vm = this;
       $scope.errorForm = errorForm;
       $scope.textInput = textInput;
     }

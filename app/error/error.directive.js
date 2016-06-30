@@ -9,6 +9,8 @@
         templateUrl: 'app/error/error.html',
         restrict: 'E',
         controllerUrl:'app/error/error.controller.js',
+        controllerAs: 'vm',
+        bindToController: true,
         scope:{
           errorForm: '@',
           textInput: '@',
