@@ -4,14 +4,19 @@
     <meta charset="utf-8">
     <title>Mutant Office Hours</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+    <link rel="stylesheet" href="app/content/css/userProfile.css">
     <link rel="stylesheet" href="app/content/css/app.css">
   </head>
   <body>
 
     <xt-navbar></xt-navbar>
-    <div id="clock" ng-controller="TimestampController">
-      <span ml-timestamp="format"></span>
+    <div class="row bump">
+      <div class="small-16 small-offset-1 collumn" id="clock" ng-controller="TimestampController">
+        <span ml-timestamp="format"></span>
+      </div>
     </div>
+    <br>
+
 
     <div ui-view class="row" id="main"></div>
 
@@ -65,6 +70,11 @@
     <!-- Error module -->
     <script src="app/error/error.module.js"></script>
     <script src="app/error/error.directive.js"></script>
+
+    <!-- User Profile module -->
+    <script src="app/userProfile/userProfile.module.js"></script>
+    <script src="app/userProfile/userProfile.controller.js"></script>
+    <script src="app/userProfile/config.route.js"></script>
 
 
 

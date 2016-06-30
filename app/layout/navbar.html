@@ -1,7 +1,8 @@
 <div class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><a ui-sref="home" class="menu-text" >Mutant School</a></li>
+      <li><a ui-sref="home" class="menu-text" ng-show="!vm.isLoggedIn()">Mutant School</a></li>
+      <li><a ui-sref="profile" class="menu-text" ng-show="vm.isLoggedIn()">Account Info</a></li>
     </ul>
   </div>
   <div class="top-bar-right">
