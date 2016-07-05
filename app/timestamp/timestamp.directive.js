@@ -15,7 +15,7 @@
         element.text(dateFilter(new Date(), format));
       }
 
-      scope.$watch(attrs.myCurrentTime, function(value) {
+      scope.$watch(attrs.mlTimestamp, function(value) {
         format = value;
         updateTime();
       });
