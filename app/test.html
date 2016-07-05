@@ -5,7 +5,9 @@
     <title></title>
   </head>
   <body ng-app="docsTimeDirective">
+      <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+    <link rel="stylesheet" href="test.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
@@ -33,7 +35,11 @@
                required />
       </label>
       <div ng-messages="myForm.myName.$error" class="small-1-offset small-3 collumn">
-        <div ng-message="required" class="callout small alert">You did not enter a field</div>
+        <!-- <div ng-message="required" >You did not enter a field</div> -->
+        <div ng-message="required" data-alert class="alert-box warning">
+          <i class="fi-alert"></i> Please fill in all required fields.
+          <a href="#" class="close">&CircleTimes;</a>
+        </div>
         <div ng-message="minlength" class="callout small alert">Your field is too short</div>
         <div ng-message="maxlength" class="callout small alert">Your field is too long</div>
       </div>
@@ -42,5 +48,25 @@
     </form>
   </div>
 
+  <div class="row">
+    <div class="small-6 columns small-centered">
+      <div data-alert class="alert-box alert">
+        <i class="fi-x"></i> Email doesn't match our records. Please try again.
+      <a href="#" class="close">&CircleTimes;</a>
+      </div>
+      <div data-alert class="alert-box warning">
+        <i class="fi-alert"></i> Please fill in all required fields.
+        <a href="#" class="close">&CircleTimes;</a>
+      </div>
+      <div data-alert class="alert-box success">
+        <i class="fi-check"></i> File upload successful!
+        <a href="#" class="close">&CircleTimes;</a>
+      </div>
+      <div data-alert class="alert-box info">
+        <i class="fi-eye"></i> You have 3 remaining credits. Spend wisely.
+        <a href="#" class="close">&CircleTimes;</a>
+      </div>
+    </div>
+  </div>
 
 </html>
